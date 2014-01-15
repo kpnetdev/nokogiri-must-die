@@ -1,6 +1,11 @@
-# World S Dumbest Browser 
+# World's Dumbest Browser 
  
 ##Learning Competencies 
+- Use Net::HTTP to download and read html pages
+- Use the Nokogiri gem to parse CSS elements 
+- Identify and implement classes based on real world requirements
+- Create well-defined classes with a single responsibility
+
 
 ##Summary 
 
@@ -18,18 +23,13 @@ Links:
   etc..
 ```
 
-We'll be using Ruby's built-in [Net::HTTP](http://ruby-doc.org/stdlib-1.9.3//libdoc/net/http/rdoc/Net/HTTP.html) library to fetch the page and then using 
-[Nokogiri](http://nokogiri.org/) to parse the HTML the page returns.
+We'll be using Ruby's built-in [Net::HTTP](http://ruby-doc.org/stdlib-1.9.3//libdoc/net/http/rdoc/Net/HTTP.html) library to fetch the page and then using [Nokogiri](http://nokogiri.org/) to parse the HTML the page returns.
 
-### Learning Goals
+We want you to start getting familiar with how the web works.  Everything your program does a browser has to do too.
 
-First, we want you to start getting familiar with how the web works.  Everything your program does a browser has to do, too.
+### Release 0: Basic Toy Browser 
 
-Second, we want you to learn about [Separation of Concerns](http://en.wikipedia.org/wiki/Separation_of_concerns).  What responsibilities does your program have to fulfill?  What classes do you need to fulfill those responsibilities?  And where are the boundaries between the classes &mdash; how do they comminucate with each other?
-
-## Objectives
-
-### Listing the Responsibilities
+#### Listing the Responsibilities
 
 Start by listing the core responsibilities of your app.  Some of these responsibilities include:
 
@@ -48,9 +48,14 @@ Get familiar with the [Net::HTTP](http://ruby-doc.org/stdlib-1.9.3//libdoc/net/h
 
 Write some toy code and fetch some web pages.  What kind of objects do `Net::HTTP` methods return?  Should your program expose those objects directly?
 
-Hint: no.  Wrap them up in objects that more directly express what your code *does* rather than how its implemented.
+**Hint:** No.  Wrap them up in objects that more directly express what your code *does* rather than how its implemented.
 
-### Object-Oriented Code
+Get your toy code to work for the sample output shown in the initial example before moving on to Release 1.
+
+
+### Release 1: Object-Oriented Browser
+
+#### Create Custom Objects 
 
 Start with a `Page` class that works like this:
 
@@ -71,11 +76,12 @@ page.title
 ```
 
 See the original gist for where to put the "driver" code.  You should have a `Browser` class that acts as the "brain" rather than lots of code living outside of a class.
- 
 
-##Releases
-###Release 0 
-
-##Optimize Your Learning 
+##Optimize Your Learning
+* Read up on [Separation of Concerns](http://en.wikipedia.org/wiki/Separation_of_concerns).  
+* What responsibilities does your program have to fulfill?  What classes do you need to fulfill those responsibilities?  
+* Where are the boundaries between the classes &mdash; how do they communicate with each other?
 
 ##Resources
+* [Net::HTTP](http://ruby-doc.org/stdlib-1.9.3/libdoc/net/http/rdoc/Net/HTTP.html) 
+* [Net::HTTP cheatsheet](http://www.rubyinside.com/nethttp-cheat-sheet-2940.html)
