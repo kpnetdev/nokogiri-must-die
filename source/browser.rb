@@ -1,5 +1,6 @@
 require 'net/http'
 require 'nokogiri'
+require 'pry'
 
 require_relative 'util'
 
@@ -7,14 +8,11 @@ class Browser
   attr_reader :page
 
   def run!
-    input = get_the_input
-    Page.new(input)
+    input = View.get_input
+    @page = Page.new(input)
+    View.display_page(@page)
   end
 
-  def get_the_input
-    print "url>"
-    URI(gets.chomp)
-  end
 
 
 
@@ -32,7 +30,31 @@ class Browser
 end
 
 
-page = Browser.new.run!
-page.fetch!
-p page.title
-p page.links.each {|link| puts link}
+class View
+
+  def self.get_input
+    print "url>"
+    URI(gets.chomp)
+  end
+
+  def self.display_page(page)
+    pretend_fetching
+    page.fetch!
+    puts "Title: #{page.title}"
+    puts "Content length: dunno"
+    puts "Links:"
+    page.links.each {|link| puts link}
+  end
+
+  def self.pretend_fetching
+    print "fetching"
+    3.times do
+      print "."
+      sleep 1
+    end
+    puts
+  end
+end
+
+
+Browser.new.run!
