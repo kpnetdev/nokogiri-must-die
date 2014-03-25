@@ -1,5 +1,5 @@
 class Page
-  attr_reader :url
+  attr_reader :url, :data  # <- REMOVE
   def initialize(url)
     @url = url
   end
@@ -10,7 +10,7 @@ class Page
   end
 
   def title
-    @data.css('title').inner_text
+    @data.title
   end
 
   def links

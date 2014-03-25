@@ -10,6 +10,7 @@ class Browser
   def run!
     input = View.get_input
     @page = Page.new(input)
+    @page.fetch!
     View.display_page(@page)
   end
 
@@ -34,13 +35,15 @@ class View
 
   def self.get_input
     print "url>"
-    URI(gets.chomp)
+    url = (gets.chomp)
+    exit if url == "quit"
+    URI(url) 
   end
 
   def self.display_page(page)
     pretend_fetching
-    page.fetch!
     puts "Title: #{page.title}"
+    binding.pry
     puts "Content length: dunno"
     puts "Links:"
     page.links.each {|link| puts link}
