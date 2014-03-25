@@ -28,6 +28,7 @@ class Browser
     # Questions:
     #  1. How can a user quit the browser gracefully?
     #  2. How can a user ask for help, i.e., how do they know what commands are available to them?
+
 end
 
 
